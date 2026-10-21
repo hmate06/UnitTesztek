@@ -17,6 +17,9 @@
   "author": "Soós Gábor <soos.gabor@jedlik.eu>",
   "license": "ISC",
   "dependencies": {
-    "sg-backend-starter": "^1.0.3"
+    "@types/jest": "^30.0.0",
+    "jest": "^30.5.2",
+    "sg-backend-starter": "^1.0.3",
+    "supertest": "^7.3.1"
   }
 }
