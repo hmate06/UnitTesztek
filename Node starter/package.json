@@ -1,0 +1,22 @@
+{
+  "name": "my-app",
+  "version": "0.1.0",
+  "description": "Express.js backend starter project with MongoDB and Mongoose integration",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "jest",
+    "postinstall": "node install.js"
+  },
+  "keywords": [
+    "express",
+    "mongodb",
+    "mongoose",
+    "rest-api"
+  ],
+  "author": "Soós Gábor <soos.gabor@jedlik.eu>",
+  "license": "ISC",
+  "dependencies": {
+    "sg-backend-starter": "^1.0.3"
+  }
+}
