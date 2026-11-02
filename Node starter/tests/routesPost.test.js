@@ -117,4 +117,26 @@ describe('POST tesztek', () => {
             message: 'Szerver hiba'
         });
     });
+
+    test('Speciális karaktereket tartalmazó adatokat is változatlanul továbbít', async () => {
+        const telefon = {
+            _id: 'special-1',
+            nev: 'Ági & Béla telefonja',
+            ar: 199999,
+            szin: 'fekete-fehér'
+        };
+        ManySide.create.mockResolvedValue({
+            _id: telefon._id
+        });
+
+        const response = await request(app)
+            .post('/new')
+            .send(telefon);
+
+        expect(response.status).toBe(201);
+        expect(response.body).toEqual({
+            _id: 'special-1'
+        });
+        expect(ManySide.create).toHaveBeenCalledWith(telefon);
+    });
 });

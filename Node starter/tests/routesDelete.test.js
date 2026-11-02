@@ -86,4 +86,18 @@ describe('DELETE tesztek', () => {
         });
         expect(ManySide.findByIdAndDelete).toHaveBeenCalledWith('404');
     });
+
+    test('Kötőjelet tartalmazó azonosítót is helyesen továbbít', async () => {
+        ManySide.findByIdAndDelete.mockResolvedValue({
+            _id: 'telefon-2025',
+            nev: 'Különleges telefon'
+        });
+
+        const response = await request(app)
+            .delete('/manyside/telefon-2025');
+
+        expect(response.status).toBe(200);
+        expect(response.text).toBe('A Különleges telefon nevű elem törölve lett.');
+        expect(ManySide.findByIdAndDelete).toHaveBeenCalledWith('telefon-2025');
+    });
 });
